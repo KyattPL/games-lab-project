@@ -2,11 +2,13 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
     public GameObject pauseMenuUI;
+    public GameObject optionsMenuUI;
     public GameObject playerObject;
     public GameObject watergunObject;
     public GameObject gunPointer;
@@ -28,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        optionsMenuUI.SetActive(false);
         gunPointer.SetActive(true);
         Time.timeScale = 1.0f;
         isGamePaused = false;
@@ -35,6 +38,17 @@ public class PauseMenu : MonoBehaviour
         watergunObject.GetComponent<RaycastGunShot>().enabled = true;
         Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.;
+    }
+    public void GoToOptions()
+    {
+        pauseMenuUI.SetActive(false);
+        optionsMenuUI.SetActive(true);
+    }
+
+    public void BackToPauseMenu()
+    {
+        pauseMenuUI.SetActive(true);
+        optionsMenuUI.SetActive(false);
     }
 
     private void Pause()
@@ -47,5 +61,15 @@ public class PauseMenu : MonoBehaviour
         watergunObject.GetComponent<RaycastGunShot>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Quit()
+    {
+        
     }
 }
