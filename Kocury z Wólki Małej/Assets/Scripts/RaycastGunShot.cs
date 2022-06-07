@@ -35,10 +35,11 @@ public class RaycastGunShot : MonoBehaviour
             if(Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))
             {
                 streamLine.SetPosition(1, hit.point);
+                //Debug.Log(hit.transform.gameObject.name);
                 if(hit.transform.gameObject.tag == "Mouse")
                 {
-                    //Debug.Log("Enemy hit!");
-                    
+                    //Debug.Log("Mouse hit");
+                    hit.transform.gameObject.GetComponent<MouseMovement>().Die();
                 }
             } 
             else

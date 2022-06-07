@@ -14,6 +14,7 @@ public class MouseMovement : MonoBehaviour
     private NavMeshAgent agent;
     private float interpolationPeriod = 12.0f;
     private float minDistance = 3.8f;
+    private float shiftParam = 0.65f;
     private float time;
     void Start()
     {
@@ -24,17 +25,41 @@ public class MouseMovement : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(agent.speed);
         time += Time.deltaTime;
-        if (time >= interpolationPeriod)
+        if (agent.enabled)
         {
-            //Debug.Log("We are changing position");
-            time = 0.0f;
-            Vector3 pos = new Vector3(Random.Range(xMin, xMax), transform.position.y, Random.Range(zMin, zMax));
-            agent.destination = pos;
+            if (time >= interpolationPeriod)
+            {
+                //Debug.Log("We are changing position");
+                time = 0.0f;
+                Vector3 pos = new Vector3(Random.Range(xMin, xMax), transform.position.y, Random.Range(zMin, zMax));
+                agent.destination = pos;
+            }
+            if (Vector3.Distance(transform.position, player.position) < minDistance)
+            {
+                Vector3 shift = (transform.position - player.position) * shiftParam;
+                agent.speed = 2.0f;
+                agent.destination = transform.position + shift;
+            }
+            else
+            {
+                agent.speed = 0.22f;
+            }
         }
-        if (Vector3.Distance(transform.position, player.position) < minDistance)
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log(collision.gameObject.name);
+        if (!agent.enabled && collision.gameObject.tag == "Player")
         {
-            //Debug.Log("We entered here");
+            Debug.Log("Mouse gathered");
+            Destroy(gameObject);
         }
+    }
+    
+    public void Die()
+    {
+        agent.enabled = false;
     }
 }

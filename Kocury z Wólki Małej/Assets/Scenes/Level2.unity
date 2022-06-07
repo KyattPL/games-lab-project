@@ -18058,9 +18058,37 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 8616685848511519559}
+    - target: {fileID: 571835274874081292, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 571835274874081293, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 571835274874081293, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
+      propertyPath: m_Center.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 571835274874081293, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 805855122967326033, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
       propertyPath: m_Name
       value: mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 805855122967326033, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
+      propertyPath: m_TagString
+      value: Mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 892823967829221988, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
+      propertyPath: m_TagString
+      value: Mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167607701557940240, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
+      propertyPath: m_TagString
+      value: Mouse
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97650f349d7b5a144bd752a642fde26d, type: 3}
@@ -18265,6 +18293,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1433274093034890014, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767774367164342172, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.375
+      objectReference: {fileID: 0}
     - target: {fileID: 1778873049226754478, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -18275,7 +18311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778873049226754478, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 1.014
       objectReference: {fileID: 0}
     - target: {fileID: 1778873049226754478, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18313,9 +18349,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2155387655690009436, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.375
+      objectReference: {fileID: 0}
     - target: {fileID: 2888263234805599140, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361956841249961728, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+      propertyPath: m_Height
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361956841249961730, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5430131454737359729, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_Layer
