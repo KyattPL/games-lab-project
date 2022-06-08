@@ -13127,11 +13127,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7544079957465894116, guid: ea473adb75173c64d913912bd93598c7, type: 3}
   m_PrefabInstance: {fileID: 7237457301160294482}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &1553992245
+--- !u!198 &1553992245 stripped
 ParticleSystem:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1553992245, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+  m_PrefabInstance: {fileID: 7237457301160294482}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553992244}
   serializedVersion: 8
@@ -23073,29 +23072,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 989907078929341770, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205847447691718736, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321754551780855942, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1433274093034890004, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433274093034890014, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767774367164342172, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.375
       objectReference: {fileID: 0}
     - target: {fileID: 1778873049226754478, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_RootOrder
@@ -23141,58 +23120,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2064599812954419621, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2155387655690009436, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 2888263234805599140, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3361956841249961728, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Height
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3361956841249961730, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5430131454737359729, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6253730256367140789, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7237457301445416304, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7544079957465894116, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8069604585362752465, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8180741480914428375, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539231131015193413, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8692767192900607428, guid: ea473adb75173c64d913912bd93598c7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
+    - target: {fileID: 7237457299740521060, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+      propertyPath: waterSplash
+      value: 
+      objectReference: {fileID: 1553992245}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea473adb75173c64d913912bd93598c7, type: 3}
 --- !u!1001 &7969258918685104073
