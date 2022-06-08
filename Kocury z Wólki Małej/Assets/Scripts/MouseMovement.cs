@@ -10,14 +10,17 @@ public class MouseMovement : MonoBehaviour
     public float zMin;
     public float zMax;
     public Transform player;
-
+    public GameObject playerGO;
+    
     private NavMeshAgent agent;
+    private MouseGathering msGatheringScript;
     private float interpolationPeriod = 12.0f;
     private float minDistance = 3.8f;
     private float shiftParam = 0.65f;
     private float time;
     void Start()
     {
+        msGatheringScript = playerGO.GetComponent<MouseGathering>();
         time = interpolationPeriod;
         agent = GetComponent<NavMeshAgent>();
         agent.baseOffset = -1.1f;
@@ -53,8 +56,12 @@ public class MouseMovement : MonoBehaviour
         //Debug.Log(collision.gameObject.name);
         if (!agent.enabled && collision.gameObject.tag == "Player")
         {
-            Debug.Log("Mouse gathered");
-            Destroy(gameObject);
+            //Debug.Log("Mouse gathered");
+            if (msGatheringScript.micesCarried < msGatheringScript.maxCapability)
+            {
+                msGatheringScript.addNewMouse();
+                Destroy(gameObject);
+            }
         }
     }
     
