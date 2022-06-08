@@ -7,6 +7,7 @@ public class RaycastGunShot : MonoBehaviour
 {
     public Camera playerCamera;
     public Transform streamOrigin;
+    public ParticleSystem waterSplash;
     public float gunRange = 50f;
     public float streamDuration = 0.05f;
     public float fireRate = 0.2f;
@@ -31,6 +32,7 @@ public class RaycastGunShot : MonoBehaviour
             fireTimer = 0;
             streamLine.SetPosition(0, streamOrigin.position);
             Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+            waterSplash.Play();
             RaycastHit hit;
             if(Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))
             {
