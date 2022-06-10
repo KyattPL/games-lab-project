@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionsMenuUI;
     public GameObject playerObject;
     public GameObject watergunObject;
-    public GameObject gunPointer;
+    public GameObject playMenuUI;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         optionsMenuUI.SetActive(false);
-        gunPointer.SetActive(true);
+        playMenuUI.SetActive(true);
         Time.timeScale = 1.0f;
         isGamePaused = false;
         playerObject.GetComponent<FirstPersonController>().enabled = true;
@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
     private void Pause()
     {
         pauseMenuUI.SetActive(true);
-        gunPointer.SetActive(false);
+        playMenuUI.SetActive(false);
         Time.timeScale = 0.0f;
         isGamePaused = true;
         playerObject.GetComponent<FirstPersonController>().enabled = false;
