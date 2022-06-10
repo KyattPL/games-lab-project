@@ -8,6 +8,7 @@ TagManager:
   - Terrain
   - Mouse
   - Camera
+  - NPC
   layers:
   - Default
   - TransparentFX
