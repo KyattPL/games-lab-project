@@ -10,12 +10,13 @@ public class DialogueStarter : MonoBehaviour
     public Camera playerCamera;
     public Canvas interactionCanvas;
     public Dialogue dialogueObj;
+    private StarterAssetsInputs _input;
     private float talkingDistance = 5.0f;
     private bool isTalking = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _input = GetComponent<StarterAssetsInputs>();
     }
 
     // Update is called once per frame
@@ -27,10 +28,11 @@ public class DialogueStarter : MonoBehaviour
             if (hit.transform.gameObject.tag == "NPC")
             {
                 interactionCanvas.gameObject.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E))
+                if (_input.interact)
                 {
                     interactionCanvas.gameObject.SetActive(false);
                     StartDialogue();
+                    _input.interact = false;
                 }
             }
         }
@@ -43,6 +45,7 @@ public class DialogueStarter : MonoBehaviour
         }
         else
         {
+            _input.interact = false;
             interactionCanvas.gameObject.SetActive(false);
         }
     }
