@@ -22,7 +22,7 @@ public class MouseMovement : MonoBehaviour
     private float time;
     private float runTime;
     private float turnSidesTime;
-    public float distToWall = 12.0f;
+    public float distToWall = 2.5f;
     void Start()
     {
         msGatheringScript = playerGO.GetComponent<MouseGathering>();
