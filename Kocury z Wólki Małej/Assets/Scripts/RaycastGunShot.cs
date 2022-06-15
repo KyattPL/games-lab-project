@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,14 @@ public class RaycastGunShot : MonoBehaviour
     public float gunRange = 50f;
     public float streamDuration = 0.05f;
     public float fireRate = 0.2f;
-
+    private StarterAssetsInputs inputSys;
     LineRenderer streamLine;
     float fireTimer;
     private AudioSource audioSource;
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();  
+        audioSource = GetComponent<AudioSource>();
+        inputSys = transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<StarterAssetsInputs>();
     }
     void Awake()
     {
@@ -26,9 +28,9 @@ public class RaycastGunShot : MonoBehaviour
 
     void Update()
     {
-        fireTimer += Time.deltaTime;
-       if(Input.GetButtonDown("Fire1") && fireTimer > fireRate)
-        {
+       fireTimer += Time.deltaTime;
+       if(inputSys.shoot && fireTimer > fireRate)
+       {
             fireTimer = 0;
             streamLine.SetPosition(0, streamOrigin.position);
             Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
@@ -50,7 +52,8 @@ public class RaycastGunShot : MonoBehaviour
             }
             audioSource.PlayOneShot(audioSource.clip);
             StartCoroutine(ShootLaser());
-        } 
+            inputSys.shoot = false;
+       } 
     }
 
     IEnumerator ShootLaser()
