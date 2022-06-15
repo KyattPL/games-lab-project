@@ -10,6 +10,9 @@ TagManager:
   - Camera
   - NPC
   - Wall
+  - Car
+  - Crate
+  - EasterShroom
   layers:
   - Default
   - TransparentFX

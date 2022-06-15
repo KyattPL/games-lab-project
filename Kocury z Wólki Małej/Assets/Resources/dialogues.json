@@ -1,0 +1,20 @@
+{
+    "quest-1": {
+        "texts": [
+            "First",
+            "line"
+        ]
+    },
+    "quest-2": {
+        "texts": [
+            "Second",
+            "quest"
+        ]
+    },
+    "eastershroom-1": {
+        "texts": [
+            "Pssst...",
+            "Podaj hasło jeśli jesteś prawdziwym kocurem"
+        ]
+    }
+}

@@ -1,13 +1,8 @@
-- dodać płot na poziomie stodoły
-- strzelanie (LMB) na nowy system wejścia -> podpiąć w skrypcie strzelania i pomijania dialogów
-- jakoś playerprefsy ogarnąć w dialogach i w zależności od poziomu ustawiać się będzie odpowiedni tekst
-- intro ze star wars z linku (pytanie czy tekst only czy nagrać głos?) -> chyba jako nowa scena i po skończeniu odtwarzania przejście do stodoły?
-- full HUD (hajs na stodole, czas i myszy na misjach)
-- mechanizm używania autka i jechania na misje (i wracania)
-- otwieranie skrzynki za piniondze
+- full HUD (hajs na stodole, czas i myszy na misjach) - kinda done (jeszcze drugi poziom)
+- mechanizm używania autka i jechania na misje (i wracania) - jeszcze wracanie -> *jak powinna wyglądać interakcja
+- otwieranie skrzynki za piniondze  -> *jak powinna wyglądać interakcja?
 - full kocury AI i działanko
 - animacje jakoś tych kocurów, w tym tygrysa na stodole I guess
 
-* problem ze skalowaniem interfejsu -> zrobić żeby rozmiar tekstu zależał od canvasa?
 * cutscenka końcowa
-* lepsze AI myszy
+* lepsze AI myszy - chyba done

@@ -33,6 +33,13 @@ public class PauseMenuBarn : MonoBehaviour
         isGamePaused = false;
         playerObject.GetComponent<FirstPersonController>().enabled = true;
         watergunObject.GetComponent<RaycastGunShot>().enabled = true;
+        playerObject.GetComponent<DialogueStarter>().enabled = true;
+
+        StarterAssetsInputs _input = playerObject.GetComponent<StarterAssetsInputs>();
+        _input.jump = false;
+        _input.interact = false;
+        _input.shoot = false;
+
         Cursor.visible = false;
     }
     
@@ -43,6 +50,13 @@ public class PauseMenuBarn : MonoBehaviour
         isGamePaused = true;
         playerObject.GetComponent<FirstPersonController>().enabled = false;
         watergunObject.GetComponent<RaycastGunShot>().enabled = false;
+        playerObject.GetComponent<DialogueStarter>().enabled = false;
+
+        StarterAssetsInputs _input = playerObject.GetComponent<StarterAssetsInputs>();
+        _input.jump = false;
+        _input.interact = false;
+        _input.shoot = false;
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
