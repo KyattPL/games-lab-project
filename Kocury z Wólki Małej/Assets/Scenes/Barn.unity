@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44658822, g: 0.49642307, b: 0.5748253, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -485,8 +485,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -36.5}
-  m_SizeDelta: {x: 1500, y: 73}
+  m_AnchoredPosition: {x: 0, y: -46.5}
+  m_SizeDelta: {x: 1500, y: 53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87090798
 MonoBehaviour:
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -81.03699, y: 0, z: -67.07294, w: 94.25009}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5226,6 +5226,7 @@ MonoBehaviour:
   - "Upoluj mi 7 myszy bo szykuje si\u0119 ostra biesiada!"
   textSpeed: 0.1
   isTalking: 0
+  _input: {fileID: 2029995849}
 --- !u!1001 &1549504446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7174,6 +7175,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1433274093034890004, guid: ea473adb75173c64d913912bd93598c7, type: 3}
   m_PrefabInstance: {fileID: 2029995845}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2029995849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3407637349147590504, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+  m_PrefabInstance: {fileID: 2029995845}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029995848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2029995860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7282,9 +7294,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -350}
-  m_SizeDelta: {x: -1400, y: -900}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 169.5}
+  m_SizeDelta: {x: -1400, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062556982
 MonoBehaviour:
@@ -7776,12 +7788,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2055826377833028381}
+  m_Father: {fileID: 782478033303509986}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 330, y: -20}
+  m_AnchoredPosition: {x: -50, y: 207.5}
   m_SizeDelta: {x: 310.6317, y: 50.9635}
   m_Pivot: {x: 1, y: 1}
 --- !u!224 &782478033303509986
@@ -7796,13 +7808,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2055826377900047713}
+  - {fileID: 694369552621460268}
   m_Father: {fileID: 2055826377833028381}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -804, y: -456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &999640979894850794
 GameObject:
@@ -8305,7 +8318,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2055826378114038783}
-  - {fileID: 694369552621460268}
   - {fileID: 782478033303509986}
   m_Father: {fileID: 0}
   m_RootOrder: 9

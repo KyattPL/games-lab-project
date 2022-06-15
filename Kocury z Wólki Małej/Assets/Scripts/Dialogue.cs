@@ -1,5 +1,6 @@
+using StarterAssets;
+
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -9,6 +10,7 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public bool isTalking;
+    public StarterAssetsInputs _input;
     private int index;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (_input.shoot)
         {
             if (textComponent.text == lines[index])
             {
@@ -32,6 +34,7 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 textComponent.text = lines[index];
             }
+            _input.shoot = false;
         }
     }
 
