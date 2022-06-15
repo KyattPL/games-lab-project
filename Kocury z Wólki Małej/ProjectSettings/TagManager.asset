@@ -9,6 +9,7 @@ TagManager:
   - Mouse
   - Camera
   - NPC
+  - Wall
   layers:
   - Default
   - TransparentFX

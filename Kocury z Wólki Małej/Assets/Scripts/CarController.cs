@@ -19,6 +19,7 @@ public class CarController : MonoBehaviour
     {
         if (Vector3.Distance(playerGO.transform.position, gameObject.transform.position) < 2.4f)
         {
+            Debug.Log("Collision");
             mouseGatherScr.removeMice();
             if (mouseGatherScr.miceCollected == mouseGatherScr.maxCapability)
             {

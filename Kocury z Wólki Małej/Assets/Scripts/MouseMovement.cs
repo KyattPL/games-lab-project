@@ -15,13 +15,20 @@ public class MouseMovement : MonoBehaviour
     private NavMeshAgent agent;
     private MouseGathering msGatheringScript;
     private float interpolationPeriod = 12.0f;
+    private float runDirectionChangeTime = 2.0f;
+    private float turnSidesChangeTime = 0.9f;
     private float minDistance = 3.8f;
-    private float shiftParam = 0.65f;
+    private float shiftParam = 6.0f;
     private float time;
+    private float runTime;
+    private float turnSidesTime;
+    public float distToWall = 12.0f;
     void Start()
     {
         msGatheringScript = playerGO.GetComponent<MouseGathering>();
         time = interpolationPeriod;
+        runTime = runDirectionChangeTime;
+        turnSidesTime = turnSidesChangeTime;
         agent = GetComponent<NavMeshAgent>();
         agent.baseOffset = -1.1f;
     }
@@ -30,6 +37,8 @@ public class MouseMovement : MonoBehaviour
     {
         //Debug.Log(agent.speed);
         time += Time.deltaTime;
+        runTime += Time.deltaTime;
+        turnSidesTime += Time.deltaTime;
         if (agent.enabled)
         {
             if (time >= interpolationPeriod)
@@ -41,14 +50,65 @@ public class MouseMovement : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, player.position) < minDistance)
             {
-                Vector3 shift = (transform.position - player.position) * shiftParam;
-                agent.speed = 2.0f;
-                agent.destination = transform.position + shift;
+                Vector3 shift = (transform.position - player.transform.position) * shiftParam;
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, distToWall))
+                {
+                    float rand = Random.value;
+                    if (hit.transform.gameObject.tag == "Wall" || hit.transform.gameObject.name.ToLower().StartsWith("fence"))
+                    {
+                        if (rand >= 0.5f)
+                        {
+                            shift = new Vector3(Random.Range(xMin / 2, xMax / 2), transform.position.y, Random.Range(zMin / 2, zMax / 2)) * shiftParam;
+                        }
+                        else
+                        {
+                            shift = new Vector3(Random.Range(xMin / 2, xMax / 2), transform.position.y, Random.Range(zMin / 2, zMax / 2)) * shiftParam; ;
+                        }
+                        if (turnSidesTime >= turnSidesChangeTime)
+                        {
+                            Debug.Log(shift);
+                            Debug.Log("Invoked");
+                            agent.speed = 2.0f;
+                            agent.destination = shift;
+                            turnSidesTime = 0.0f;
+                        }
+                    }
+                    else if (rand >= 0.95f)
+                    {
+                        shift = Quaternion.Euler(-90.0f, 0.0f, 0.0f) * shift;
+                    }
+                    else if (rand >= 0.9f)
+                    {
+                        shift = Quaternion.Euler(90.0f, 0.0f, 0.0f) * shift;
+                    }
+                }
+                else
+                {
+                    float rand = Random.value;
+                    if (rand >= 0.95f)
+                    {
+                        shift = Quaternion.Euler(-90.0f, 0.0f, 0.0f) * shift;
+                    }
+                    else if (rand >= 0.9f)
+                    {
+                        shift = Quaternion.Euler(90.0f, 0.0f, 0.0f) * shift;
+                    }
+                }
+                //Debug.DrawRay(transform.position, transform.forward, Color.green);
+                if(runTime >= runDirectionChangeTime)
+                {
+                    agent.speed = 2.0f;
+                    agent.destination = transform.position + shift;
+                    runTime = 0.0f;
+                }
+               
             }
             else
             {
                 agent.speed = 0.22f;
             }
+            //Debug.DrawRay(transform.position + new Vector3(0f, 1.5f), transform.forward, Color.green);
         }
     }
     private void OnCollisionEnter(Collision collision)
