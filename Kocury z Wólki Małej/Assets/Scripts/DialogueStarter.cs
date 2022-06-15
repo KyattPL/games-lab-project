@@ -32,7 +32,6 @@ public class DialogueStarter : MonoBehaviour
                 {
                     interactionCanvas.gameObject.SetActive(false);
                     StartDialogue();
-                    _input.interact = false;
                 }
             }
         }
@@ -45,7 +44,6 @@ public class DialogueStarter : MonoBehaviour
         }
         else
         {
-            _input.interact = false;
             interactionCanvas.gameObject.SetActive(false);
         }
     }
@@ -64,5 +62,6 @@ public class DialogueStarter : MonoBehaviour
         isTalking = false;
         playerObj.GetComponent<FirstPersonController>().enabled = true;
         watergunObj.GetComponent<RaycastGunShot>().enabled = true;
+        _input.interact = false;
     }
 }

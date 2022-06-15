@@ -8,5 +8,6 @@
 - full kocury AI i działanko
 - animacje jakoś tych kocurów, w tym tygrysa na stodole I guess
 
+* problem ze skalowaniem interfejsu -> zrobić żeby rozmiar tekstu zależał od canvasa?
 * cutscenka końcowa
 * lepsze AI myszy
