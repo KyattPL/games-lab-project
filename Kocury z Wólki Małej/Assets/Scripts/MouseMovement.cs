@@ -67,9 +67,8 @@ public class MouseMovement : MonoBehaviour
                         }
                         if (turnSidesTime >= turnSidesChangeTime)
                         {
-                            Debug.Log(shift);
-                            Debug.Log("Invoked");
-                            agent.speed = 2.0f;
+                            
+                            agent.speed = 4.0f;
                             agent.destination = shift;
                             turnSidesTime = 0.0f;
                         }
