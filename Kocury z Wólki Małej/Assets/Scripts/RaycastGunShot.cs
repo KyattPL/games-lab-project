@@ -40,10 +40,14 @@ public class RaycastGunShot : MonoBehaviour
             {
                 streamLine.SetPosition(1, hit.point);
                 
-                if(hit.transform.gameObject.tag == "Mouse")
+                if (hit.transform.gameObject.tag == "Mouse")
                 {
                     //Debug.Log("Mouse hit");
                     hit.transform.gameObject.GetComponent<MouseMovement>().Die();
+                }
+                else if (hit.transform.gameObject.tag == "Enemy")
+                {
+                    hit.transform.gameObject.GetComponent<EnemyCat>().WasShot = true;
                 }
             } 
             else
