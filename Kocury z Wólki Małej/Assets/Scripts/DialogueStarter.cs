@@ -1,12 +1,11 @@
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
-using System.Collections;
+
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 
 using Newtonsoft.Json;
 public class DialogueStarter : MonoBehaviour
@@ -23,6 +22,7 @@ public class DialogueStarter : MonoBehaviour
     private float talkingDistance = 5.0f;
     private bool isTalking = false;
     private bool isInputVisible = false;
+    private bool isShroomEncountered = false;
     private Dictionary<string, Dictionary<string, string[]>> _dialogues;
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class DialogueStarter : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, talkingDistance) && !isTalking)
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, talkingDistance) && !isTalking && !isShroomEncountered)
         {
             if (hit.transform.gameObject.tag == "NPC")
             {
@@ -72,7 +72,7 @@ public class DialogueStarter : MonoBehaviour
                     interactionCanvas.gameObject.SetActive(false);
                     string[] lines = _dialogues["eastershroom-1"]["texts"];
                     StartDialogue(lines);
-                    isInputVisible = true;
+                    isShroomEncountered = true;
                 }
             }
             else
@@ -84,18 +84,24 @@ public class DialogueStarter : MonoBehaviour
         {
             if (!dialogueObj.gameObject.activeSelf && !isInputVisible)
             {
+                StopTalking();
                 ResumeGame();
-            }
-            else if (isInputVisible) {
-                easterBox.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
             }
         }
         else
         {
             _input.interact = false;
             interactionCanvas.gameObject.SetActive(false);
+        }
+
+        if (!isTalking && isShroomEncountered) {
+            easterBox.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            playerObj.GetComponent<FirstPersonController>().enabled = false;
+            watergunObj.GetComponent<RaycastGunShot>().enabled = false;
+            menuObj.GetComponent<PauseMenuBarn>().enabled = false;
+            easterBox.GetComponentInChildren<Button>().onClick.AddListener(CheckSecret);
         }
     }
 
@@ -109,12 +115,39 @@ public class DialogueStarter : MonoBehaviour
         dialogueObj.gameObject.SetActive(true);
     }
 
-    void ResumeGame()
+    void StopTalking()
     {
         isTalking = false;
+    }
+
+    void ResumeGame()
+    {
         playerObj.GetComponent<FirstPersonController>().enabled = true;
         watergunObj.GetComponent<RaycastGunShot>().enabled = true;
         menuObj.GetComponent<PauseMenuBarn>().enabled = true;
         _input.interact = false;
+    }
+
+    void CheckSecret()
+    {
+        GameObject inputForm = GameObject.Find("TextInput");
+
+        if (inputForm != null) {
+            string inputVal = inputForm.GetComponent<TextMeshProUGUI>().text;
+            _input.shoot = false;
+            inputVal = inputVal.Substring(0, inputVal.Length - 1);
+
+            if (inputVal.Trim() == "eksperta") {
+                isShroomEncountered = false;
+                easterBox.SetActive(false);
+                Cursor.visible = false;
+                StartDialogue(new string[] {"Dobrze byku!"});
+            } else {
+                isShroomEncountered = false;
+                easterBox.SetActive(false);
+                Cursor.visible = false;
+                StartDialogue(new string[] {"Nic z tego kolego!"});
+            }
+        }
     }
 }
