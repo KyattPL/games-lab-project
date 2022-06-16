@@ -25,6 +25,7 @@ public class EnemyCat : MonoBehaviour
 
     public void TakeOneLife()
     {
+        //Debug.Log("Invoked");
         playerTr.gameObject.GetComponent<LivesManager>().TakeOneLife();
     }
 }
