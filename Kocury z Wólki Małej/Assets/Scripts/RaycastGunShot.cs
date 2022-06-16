@@ -26,6 +26,11 @@ public class RaycastGunShot : MonoBehaviour
         streamLine = GetComponent<LineRenderer>(); 
     }
 
+    void OnEnable()
+    {
+        if (inputSys != null)
+            inputSys.shoot = false;
+    }
     void Update()
     {
        fireTimer += Time.deltaTime;

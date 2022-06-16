@@ -31,12 +31,12 @@ public class PatrolState : AbstractState
     
     private NavMeshAgent navAgent;
     private float hearDistance = 6.0f;
-    private float changeGoalPeriod = 3.0f;
+    private float changeGoalPeriod = 10.0f;
     private float currTime;
-    private float xMin;
-    private float xMax;
-    private float zMin;
-    private float zMax;
+    private float xMin = -21.53f;
+    private float xMax = 1.55f;
+    private float zMin = -26.55f;
+    private float zMax = 0.79f;
 
     public PatrolState(EnemyCat enemy, Transform pTransform) : base(enemy, pTransform)
     {
@@ -79,7 +79,7 @@ public class RunToPlayerState : AbstractState
     
     private NavMeshAgent navAgent;
     private float hearDistance = 6.0f;
-    private float attackDistance = 0.6f;
+    private float attackDistance = 0.8f;
     public RunToPlayerState(EnemyCat enemy, Transform pTransform) : base(enemy, pTransform)
     {
 
@@ -88,13 +88,14 @@ public class RunToPlayerState : AbstractState
     {
         Animator animator = enemy.GetComponent<Animator>();
         navAgent = enemy.GetComponent<NavMeshAgent>();
-        navAgent.speed = 4.2f;
+        navAgent.speed = 3.2f;
         animator.SetInteger("state", 1);
         WasShot = false;
-        navAgent.destination = playerTransform.position;
+        
     }
     public override void Run()
     {
+        navAgent.destination = playerTransform.position;
         if (WasShot)
         {
             MoveTo(new RunAwayState(enemy, playerTransform));
@@ -115,7 +116,7 @@ public class RunAwayState : AbstractState
     private float currTime;
     private float timeToPass = 3.0f;
     private float hearDistance = 6.0f;
-    private float attackDistance = 0.6f;
+    private float attackDistance = 0.8f;
 
     public RunAwayState(EnemyCat enemy, Transform pTransform) : base(enemy, pTransform)
     {
@@ -128,7 +129,7 @@ public class RunAwayState : AbstractState
         animator.SetInteger("state", 1);
         Vector3 runShift = new Vector3(0.0f, 0.0f, -7.0f);
         NavMeshAgent navAgent = enemy.GetComponent<NavMeshAgent>();
-        navAgent.speed = 3.7f;
+        navAgent.speed = 2.7f;
         navAgent.destination = enemy.transform.position + runShift;
     }
 
@@ -160,7 +161,7 @@ public class RunAwayState : AbstractState
 
 public class AttackState : AbstractState
 {
-    private float attackDistance = 0.6f;
+    private float attackDistance = 0.8f;
     private NavMeshAgent navAgent;
     public AttackState(EnemyCat enemy, Transform pTransform) : base(enemy, pTransform)
     {
@@ -173,7 +174,7 @@ public class AttackState : AbstractState
         animator.SetInteger("state", 2);
         navAgent = enemy.GetComponent<NavMeshAgent>();
         navAgent.speed = 2.0f;
-        navAgent.destination = playerTransform.position;
+        navAgent.updatePosition = false;
     }
     public override void Run()
     {
@@ -185,5 +186,10 @@ public class AttackState : AbstractState
         {
             MoveTo(new RunToPlayerState(enemy, playerTransform));
         }
+    }
+
+    public override void Exit()
+    {
+        navAgent.updatePosition = true;
     }
 }

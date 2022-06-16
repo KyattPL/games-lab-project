@@ -13,6 +13,8 @@ TagManager:
   - Car
   - Crate
   - EasterShroom
+  - EasterBox
+  - Enemy
   layers:
   - Default
   - TransparentFX

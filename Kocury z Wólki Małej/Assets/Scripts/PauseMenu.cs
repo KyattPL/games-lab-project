@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         playerObject.GetComponent<FirstPersonController>().enabled = true;
         watergunObject.GetComponent<RaycastGunShot>().enabled = true;
         Cursor.visible = false;
+
         //Cursor.lockState = CursorLockMode.;
     }
     public void GoToOptions()

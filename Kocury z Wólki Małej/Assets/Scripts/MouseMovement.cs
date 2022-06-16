@@ -30,7 +30,7 @@ public class MouseMovement : MonoBehaviour
         runTime = runDirectionChangeTime;
         turnSidesTime = turnSidesChangeTime;
         agent = GetComponent<NavMeshAgent>();
-        agent.baseOffset = -1.1f;
+        //agent.baseOffset = -1.1f;
     }
 
     void Update()
