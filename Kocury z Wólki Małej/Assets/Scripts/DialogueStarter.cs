@@ -141,12 +141,13 @@ public class DialogueStarter : MonoBehaviour
                 isShroomEncountered = false;
                 easterBox.SetActive(false);
                 Cursor.visible = false;
-                StartDialogue(new string[] {"Dobrze byku!"});
+                GameObject.FindGameObjectWithTag("EasterShroom").tag = "Untagged";
+                StartDialogue(new string[] {"Hmm...", "No dobra, dla prawdziwego kocura 10 myszodolarów się należy!"});
             } else {
                 isShroomEncountered = false;
                 easterBox.SetActive(false);
                 Cursor.visible = false;
-                StartDialogue(new string[] {"Nic z tego kolego!"});
+                StartDialogue(new string[] {"Hmm...", "Nic z tego kolego!"});
             }
         }
     }

@@ -1,8 +1,8 @@
-- full HUD (hajs na stodole, czas i myszy na misjach) - kinda done (jeszcze drugi poziom)
-- mechanizm używania autka i jechania na misje (i wracania) - jeszcze wracanie -> *jak powinna wyglądać interakcja
-- otwieranie skrzynki za piniondze  -> *jak powinna wyglądać interakcja?
-- full kocury AI i działanko
-- animacje jakoś tych kocurów, w tym tygrysa na stodole I guess
+- otwieranie skrzynki za piniondze
+- jakoś ustawić tygrysa (nie T-pose) i napisać dialogi
+- umieścić wszystkie myszy i kocury
+- zparametryzować (playerprefs) wielkość worka i na HUD'ie potem to wyświetlać podczas misji gitersko
+- dopisać do easter egga zwiększanie hajsu
 
 * cutscenka końcowa
-* lepsze AI myszy - chyba done
+* wszystko z mobilką

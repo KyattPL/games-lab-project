@@ -3723,21 +3723,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
---- !u!114 &743872531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172588011307852130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.7176471, g: 0.7176471, b: 0.7176471, a: 0.74509805}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &749638219
 GameObject:
   m_ObjectHideFlags: 0
@@ -11329,7 +11314,7 @@ GameObject:
   - component: {fileID: 694369552621460268}
   - component: {fileID: 5476406361364360569}
   - component: {fileID: 3751063935885950888}
-  - component: {fileID: 743872531}
+  - component: {fileID: 5476406361364360570}
   m_Layer: 5
   m_Name: Money state
   m_TagString: Untagged
@@ -12068,7 +12053,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESUME
+  m_Text: "WZN\xD3W"
 --- !u!114 &2055826378120390495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12156,7 +12141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUIT
+  m_Text: "WYJD\u0179"
 --- !u!114 &2055826378275510269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12742,7 +12727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12762,7 +12747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Money: $0.00'
+  m_Text: "Pieni\u0105dze: $0.00"
 --- !u!4 &3862434440412167851
 Transform:
   m_ObjectHideFlags: 0
@@ -13010,6 +12995,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172588011307852130}
   m_CullTransparentMesh: 1
+--- !u!114 &5476406361364360570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172588011307852130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: 1}
+  m_UseGraphicAlpha: 1
 --- !u!4 &5551861280022290932
 Transform:
   m_ObjectHideFlags: 0
