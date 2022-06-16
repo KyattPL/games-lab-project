@@ -10,6 +10,7 @@ public class EnemyCat : MonoBehaviour
     void Awake()
     {
         currState = new PatrolState(this, playerTr);
+        currState.Entry();
     }
 
     void Update()

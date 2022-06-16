@@ -47,7 +47,7 @@ public class RaycastGunShot : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == "Enemy")
                 {
-                    hit.transform.gameObject.GetComponent<EnemyCat>().WasShot = true;
+                    hit.transform.gameObject.GetComponent<EnemyCat>().currState.WasShot = true;
                 }
             } 
             else

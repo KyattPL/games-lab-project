@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum StateName { RunToPlayer, RunAway, Patrol, Attack}
 public abstract class AbstractState
@@ -47,7 +48,7 @@ public class PatrolState : AbstractState
         currTime = changeGoalPeriod;
         Animator animator = enemy.GetComponent<Animator>();
         navAgent = enemy.GetComponent<NavMeshAgent>();
-        navAgent.speed = 1.25;
+        navAgent.speed = 0.7f;
         animator.SetInteger("state", 0);
         WasShot = false;
     }
@@ -55,7 +56,7 @@ public class PatrolState : AbstractState
     public override void Run()
     {
         currTime += Time.deltaTime;
-        if (Vector3.Distance(enemy.transform.position, playerTransform.position) < minDistance)
+        if (Vector3.Distance(enemy.transform.position, playerTransform.position) < hearDistance)
         {
             MoveTo(new RunToPlayerState(enemy, playerTransform));
         }
@@ -90,7 +91,7 @@ public class RunToPlayerState : AbstractState
         navAgent.speed = 4.2f;
         animator.SetInteger("state", 1);
         WasShot = false;
-        navAgent.destination = playerTransform;
+        navAgent.destination = playerTransform.position;
     }
     public override void Run()
     {
@@ -160,6 +161,7 @@ public class RunAwayState : AbstractState
 public class AttackState : AbstractState
 {
     private float attackDistance = 0.6f;
+    private NavMeshAgent navAgent;
     public AttackState(EnemyCat enemy, Transform pTransform) : base(enemy, pTransform)
     {
 
@@ -169,6 +171,7 @@ public class AttackState : AbstractState
         WasShot = false;
         Animator animator = enemy.GetComponent<Animator>();
         animator.SetInteger("state", 2);
+        navAgent = enemy.GetComponent<NavMeshAgent>();
         navAgent.speed = 2.0f;
         navAgent.destination = playerTransform.position;
     }
