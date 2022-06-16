@@ -22,4 +22,9 @@ public class EnemyCat : MonoBehaviour
     {
         currState = newState;
     }
+
+    public void TakeOneLife()
+    {
+        playerTr.gameObject.GetComponent<LivesManager>().TakeOneLife();
+    }
 }
