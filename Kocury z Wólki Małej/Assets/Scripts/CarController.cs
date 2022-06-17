@@ -32,7 +32,7 @@ public class CarController : MonoBehaviour
                             PlayerPrefs.SetString("Next level", "Level2");
                             break;
                         case "Level2":
-                            PlayerPrefs.DeleteKey("Next level");
+                            PlayerPrefs.SetString("Next level", "Level3");
                             break;
                     }
                     PlayerPrefs.SetFloat("FinishedTime", Time.time - startTimeStamp);
@@ -58,7 +58,6 @@ public class CarController : MonoBehaviour
 
                 if (Time.time - startTimeStamp <= timeToFinish)
                 {
-                    PlayerPrefs.DeleteKey("Next level");
                     PlayerPrefs.SetFloat("FinishedTime", Time.time - startTimeStamp);
                     PlayerPrefs.SetString("Level completed", "True");
                 }

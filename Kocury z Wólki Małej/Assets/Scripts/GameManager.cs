@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("MiceToCollect", 7);
             PlayerPrefs.SetFloat("Money", 0.0f);
             PlayerPrefs.SetString("Dialogue", "quest-1");
+            PlayerPrefs.SetString("ShroomDone", "False");
         }
         if (PlayerPrefs.HasKey("Next level") && PlayerPrefs.HasKey("Level completed") && PlayerPrefs.GetString("Level completed") == "True")
         {

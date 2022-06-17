@@ -25,6 +25,7 @@ public class DialogueStarter : MonoBehaviour
     private bool isInputVisible = false;
     private bool isShroomEncountered = false;
     private bool isTigerTalking = false;
+    private bool isQuestReceived = false;
     private Dictionary<string, Dictionary<string, string[]>> _dialogues;
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class DialogueStarter : MonoBehaviour
                     StartDialogue(lines);
                 }
             }
-            else if (hit.transform.gameObject.tag == "Car")
+            else if (hit.transform.gameObject.tag == "Car" && isQuestReceived)
             {
                 interactionCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Wciśnij E by pojechać na misję";
                 interactionCanvas.gameObject.SetActive(true);
@@ -74,7 +75,7 @@ public class DialogueStarter : MonoBehaviour
                     _input.interact = false;
                 }
             }
-            else if (hit.transform.gameObject.tag == "EasterShroom")
+            else if (hit.transform.gameObject.tag == "EasterShroom" && PlayerPrefs.GetString("ShroomDone") == "False")
             {
                 interactionCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "???";
                 interactionCanvas.gameObject.SetActive(true);
@@ -137,6 +138,11 @@ public class DialogueStarter : MonoBehaviour
         watergunObj.GetComponent<RaycastGunShot>().enabled = true;
         menuObj.GetComponent<PauseMenuBarn>().enabled = true;
 
+        if (isTigerTalking && !PlayerPrefs.GetString("Dialogue").Contains("done"))
+        {
+            isQuestReceived = true;
+        }
+
         if (isTigerTalking && PlayerPrefs.HasKey("Level completed") && PlayerPrefs.GetString("Level completed") == "True")
         {
             PlayerPrefs.SetInt("Quest", PlayerPrefs.GetInt("Quest", 1) + 1);
@@ -190,6 +196,7 @@ public class DialogueStarter : MonoBehaviour
                 StartDialogue(new string[] {"Hmm...", "No dobra, dla prawdziwego kocura 133.7 myszodolarów się należy!"});
                 PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money", 0.0f) + 133.7f);
                 plMenuDisp.SetMoneyState(PlayerPrefs.GetFloat("Money"));
+                PlayerPrefs.SetString("ShroomDone", "True");
             } else {
                 isShroomEncountered = false;
                 easterBox.SetActive(false);
