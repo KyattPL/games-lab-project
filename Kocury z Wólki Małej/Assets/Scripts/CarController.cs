@@ -25,16 +25,24 @@ public class CarController : MonoBehaviour
             {
                 if (Time.time - startTimeStamp <= timeToFinish)
                 {
-                    PlayerPrefs.DeleteKey("Next level");
+                    string currLvl = PlayerPrefs.GetString("Next level");
+                    switch (currLvl)
+                    {
+                        case "Level1":
+                            PlayerPrefs.SetString("Next level", "Level2");
+                            break;
+                        case "Level2":
+                            PlayerPrefs.DeleteKey("Next level");
+                            break;
+                    }
                     PlayerPrefs.SetFloat("FinishedTime", Time.time - startTimeStamp);
                     PlayerPrefs.SetString("Level completed", "True");
                 }
                 else
                 {
                     PlayerPrefs.SetString("Level completed", "False");
-                    PlayerPrefs.SetString("Next level", "Level2");
                 }
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene("Barn");
             }
         }
     }

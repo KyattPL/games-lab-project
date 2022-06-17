@@ -19,7 +19,7 @@ public class MouseGathering : MonoBehaviour
         maxCapability = PlayerPrefs.GetInt("MiceCapability");
         miceToCollect = PlayerPrefs.GetInt("MiceToCollect");
         miceToCollect = 1;
-        maxCapability = 5;
+        maxCapability = 4;
         playMenuScript = playMenuGO.GetComponent<PlayMenu>();
         playMenuScript.ChangeMiceCarriedNumber(0, maxCapability);
         playMenuScript.ChangeMiceLeftNumber(miceToCollect, miceToCollect);

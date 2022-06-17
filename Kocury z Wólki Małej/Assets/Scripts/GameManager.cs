@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayMenuBarn playMenuDisp;
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         if (!PlayerPrefs.HasKey("Next level") && !PlayerPrefs.HasKey("Level completed"))
         {
             PlayerPrefs.SetString("Next level", "Level1");
@@ -37,6 +37,29 @@ public class GameManager : MonoBehaviour
                 money = 50.0f;
             }
             PlayerPrefs.SetFloat("Money", money);
+        }
+        if (!PlayerPrefs.HasKey("Next level") && PlayerPrefs.HasKey("Level completed") && PlayerPrefs.GetString("Level completed") == "True")
+        {
+            float currMoney = PlayerPrefs.GetFloat("Money");
+            float fTime = PlayerPrefs.GetFloat("FinishedTime");
+            float money;
+            if (fTime < 100.0f)
+            {
+                money = 400.0f;
+            }
+            else if (fTime < 300.0f)
+            {
+                money = 200.0f;
+            }
+            else if (fTime < 500.0f)
+            {
+                money = 130.0f;
+            }
+            else
+            {
+                money = 50.0f;
+            }
+            PlayerPrefs.SetFloat("Money", money + currMoney);
         }
         //if (PlayerPrefs.HasKey("Next level") && PlayerPrefs.GetString("Next level") == "Level1")
         //{
