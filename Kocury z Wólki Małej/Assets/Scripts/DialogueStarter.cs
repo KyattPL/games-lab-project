@@ -140,6 +140,7 @@ public class DialogueStarter : MonoBehaviour
         if (isTigerTalking && PlayerPrefs.HasKey("Level completed") && PlayerPrefs.GetString("Level completed") == "True")
         {
             PlayerPrefs.SetInt("Quest", PlayerPrefs.GetInt("Quest", 1) + 1);
+            PlayerPrefs.SetInt("MiceToCollect", PlayerPrefs.GetInt("MiceToCollect") + 4);
             int nextQuest = PlayerPrefs.GetInt("Quest");
 
             PlayerPrefs.SetString("Level completed", "False");

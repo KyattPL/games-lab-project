@@ -1,26 +1,34 @@
 {
     "quest-1": {
         "texts": [
-            "First",
-            "line"
+            "Witaj Rafa...",
+            "Dawno cię u mnie nie widziałem. Magazyny stoją puste i przyda się dodatkowa para łap.",
+            "Pojedź w okolice studni i zgarnij mi 7 myszy a dorzucę ci trochę myszodolarów.",
+            "Możesz pojechać autem właścicieli, pojechali na wakacje kamperem więc nie będzie problemu.",
+            "Swoją drogą możesz rozejrzeć się po okolicy, może znajdziesz coś interesującego ;)",
+            "Dobra, jedź już!"
         ]
     },
     "quest-2": {
         "texts": [
-            "Second",
-            "quest"
+            "Nikt nie lubi kupować kota w worku..",
+            "Ale ty możesz kupić worek na myszy! Gdzieś za stodołą stoją skrzynki.",
+            "Sypniesz trochę myszodolarów to ci się otworzą.",
+            "A wracając, kolejne polowanie przed tobą.",
+            "Na łące zebrało się niezłe stadko, zbierz mi 11 myszy. Do roboty Rafa!"
         ]
     },
     "quest-1-done": {
         "texts": [
-            "Wow",
-            "So good"
+            "Mhm...",
+            "Niezłe sztuki udało ci się złowić...",
+            "Masz, oto twoja nagroda."
         ]
     },
     "quest-2-done": {
         "texts": [
-            "Second done",
-            "Poggies"
+            "Dobra robota! Powiedz... było trudno, hah?",
+            "Słuchaj Rafa, to tyle z wersji demo, po więcej polowań zapraszam w przyszłości :)."
         ]
     },
     "eastershroom-1": {
