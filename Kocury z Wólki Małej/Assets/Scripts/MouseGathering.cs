@@ -38,9 +38,10 @@ public class MouseGathering : MonoBehaviour
 
     public void removeMice()
     {
+        fpsScript.MoveSpeed = fpsScript.MoveSpeed * (float)Math.Pow(1.11f, micesCarried);
         micesCarried = 0;
         playMenuScript.ChangeMiceCarriedNumber(micesCarried, maxCapability);
         playMenuScript.ChangeMiceLeftNumber(miceToCollect - miceCollected, miceToCollect);
-        fpsScript.MoveSpeed = fpsScript.MoveSpeed * (float) Math.Pow(1.11f, micesCarried);
+        
     }
 }
