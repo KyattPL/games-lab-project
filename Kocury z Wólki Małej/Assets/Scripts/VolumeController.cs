@@ -11,9 +11,11 @@ public class VolumeController : MonoBehaviour
     void Start()
     {
         bgAudioSource = audioController.GetComponent<AudioSource>();
+        bgAudioSource.volume = PlayerPrefs.GetFloat("Volume", 0.202f);
     }
     public void VolumeSlider()
     {
-        bgAudioSource.volume = volumeSlider.value;       
+        bgAudioSource.volume = volumeSlider.value;
+        PlayerPrefs.SetFloat("Volume", bgAudioSource.volume);
     }
 }
