@@ -24,6 +24,7 @@ public class DialogueStarter : MonoBehaviour
     private bool isTalking = false;
     private bool isInputVisible = false;
     private bool isShroomEncountered = false;
+    private bool isTigerTalking = false;
     private Dictionary<string, Dictionary<string, string[]>> _dialogues;
     // Start is called before the first frame update
     void Start()
@@ -44,9 +45,10 @@ public class DialogueStarter : MonoBehaviour
                 interactionCanvas.gameObject.SetActive(true);
                 if (_input.interact)
                 {
-                    int currentQuest = PlayerPrefs.GetInt("quest", 1);
+                    string currentDialogue = PlayerPrefs.GetString("Dialogue", "quest-1");
                     interactionCanvas.gameObject.SetActive(false);
-                    string[] lines = _dialogues[$"quest-{currentQuest}"]["texts"];
+                    string[] lines = _dialogues[currentDialogue]["texts"];
+                    isTigerTalking = true;
                     StartDialogue(lines);
                 }
             }
@@ -56,7 +58,7 @@ public class DialogueStarter : MonoBehaviour
                 interactionCanvas.gameObject.SetActive(true);
                 if (_input.interact)
                 {
-                    SceneManager.LoadScene("Level1");
+                    SceneManager.LoadScene(PlayerPrefs.GetString("Next level", "Level1"));
                 }
             }
             else if (hit.transform.gameObject.tag == "Crate" && PlayerPrefs.GetFloat("Money") >= 100.0f && PlayerPrefs.GetInt("MiceCapability") != 7)
@@ -134,6 +136,39 @@ public class DialogueStarter : MonoBehaviour
         playerObj.GetComponent<FirstPersonController>().enabled = true;
         watergunObj.GetComponent<RaycastGunShot>().enabled = true;
         menuObj.GetComponent<PauseMenuBarn>().enabled = true;
+
+        if (isTigerTalking && PlayerPrefs.HasKey("Level completed") && PlayerPrefs.GetString("Level completed") == "True")
+        {
+            PlayerPrefs.SetInt("Quest", PlayerPrefs.GetInt("Quest", 1) + 1);
+            int nextQuest = PlayerPrefs.GetInt("Quest");
+
+            PlayerPrefs.SetString("Level completed", "False");
+            PlayerPrefs.SetString("Next level", $"Level{nextQuest}");
+                        
+            float fTime = PlayerPrefs.GetFloat("FinishedTime");
+            float money;
+            if (fTime < 100.0f)
+            {
+                money = 400.0f;
+            }
+            else if (fTime < 300.0f)
+            {
+                money = 200.0f;
+            }
+            else if (fTime < 500.0f)
+            {
+                money = 130.0f;
+            }
+            else
+            {
+                money = 50.0f;
+            }
+            PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money", 0.0f) + money);
+            plMenuDisp.SetMoneyState(PlayerPrefs.GetFloat("Money"));
+            PlayerPrefs.SetString("Dialogue", $"quest-{nextQuest}");
+        }
+
+        isTigerTalking = false;
         _input.interact = false;
     }
 
@@ -151,7 +186,9 @@ public class DialogueStarter : MonoBehaviour
                 easterBox.SetActive(false);
                 Cursor.visible = false;
                 GameObject.FindGameObjectWithTag("EasterShroom").tag = "Untagged";
-                StartDialogue(new string[] {"Hmm...", "No dobra, dla prawdziwego kocura 10 myszodolarów się należy!"});
+                StartDialogue(new string[] {"Hmm...", "No dobra, dla prawdziwego kocura 133.7 myszodolarów się należy!"});
+                PlayerPrefs.SetFloat("Money", PlayerPrefs.GetFloat("Money", 0.0f) + 133.7f);
+                plMenuDisp.SetMoneyState(PlayerPrefs.GetFloat("Money"));
             } else {
                 isShroomEncountered = false;
                 easterBox.SetActive(false);

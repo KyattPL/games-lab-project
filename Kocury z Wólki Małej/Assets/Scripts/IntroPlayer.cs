@@ -11,6 +11,7 @@ public class IntroPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         _input = GetComponent<StarterAssetsInputs>();
         introPlayer.loopPointReached += delegate(VideoPlayer vp) {SceneManager.LoadScene("Barn");};
     }

@@ -165,8 +165,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 1, z: 4}
-  m_Center: {x: 0, y: 0.65, z: 0.46}
+  m_Size: {x: 2.2, y: 1.2639343, z: 4}
+  m_Center: {x: 0, y: 0.51803285, z: 0.46000007}
 --- !u!114 &571835274874081282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +184,8 @@ MonoBehaviour:
   zMin: -26.55
   zMax: 0.79
   player: {fileID: 0}
+  playerGO: {fileID: 0}
+  distToWall: 2.5
 --- !u!195 &571835274874081283
 NavMeshAgent:
   m_ObjectHideFlags: 0

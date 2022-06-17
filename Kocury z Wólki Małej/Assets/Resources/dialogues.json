@@ -11,6 +11,18 @@
             "quest"
         ]
     },
+    "quest-1-done": {
+        "texts": [
+            "Wow",
+            "So good"
+        ]
+    },
+    "quest-2-done": {
+        "texts": [
+            "Second done",
+            "Poggies"
+        ]
+    },
     "eastershroom-1": {
         "texts": [
             "Pssst...",

@@ -7,7 +7,7 @@ public class PlayMenu : MonoBehaviour
     private Text miceLeft;
     private Text miceCarried;
     private Text livesLeft;
-    void Start()
+    void Awake()
     {
         miceLeft = gameObject.transform.GetChild(1).gameObject.GetComponent<Text>();
         miceCarried = gameObject.transform.GetChild(2).gameObject.GetComponent<Text>();

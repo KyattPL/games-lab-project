@@ -66,12 +66,18 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1.0f;
+        Cursor.visible = false;
+        isGamePaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Quit()
     {
+        Time.timeScale = 1.0f;
+        Cursor.visible = false;
+        isGamePaused = false;
         PlayerPrefs.SetString("Level completed", "False");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Barn");
     }
 }
