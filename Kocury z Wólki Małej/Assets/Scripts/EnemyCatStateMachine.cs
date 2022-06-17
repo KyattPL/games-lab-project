@@ -127,7 +127,7 @@ public class RunAwayState : AbstractState
         WasShot = false;
         Animator animator = enemy.GetComponent<Animator>();
         animator.SetInteger("state", 1);
-        Vector3 runShift = new Vector3(0.0f, 0.0f, -7.0f);
+        Vector3 runShift = -enemy.transform.forward * 4.2f;
         NavMeshAgent navAgent = enemy.GetComponent<NavMeshAgent>();
         navAgent.speed = 2.7f;
         navAgent.destination = enemy.transform.position + runShift;
