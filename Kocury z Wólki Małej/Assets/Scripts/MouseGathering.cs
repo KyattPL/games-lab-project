@@ -11,29 +11,36 @@ public class MouseGathering : MonoBehaviour
     public int micesCarried = 0;
     public int miceCollected = 0;
     public int maxCapability;
+    public int miceToCollect;
     public GameObject playMenuGO;
     void Start()
     {
         fpsScript = GetComponent<FirstPersonController>();
         maxCapability = PlayerPrefs.GetInt("MiceCapability");
-        maxCapability = 1;
+        miceToCollect = PlayerPrefs.GetInt("MiceToCollect");
+        miceToCollect = 1;
+        maxCapability = 5;
         playMenuScript = playMenuGO.GetComponent<PlayMenu>();
-        playMenuScript.ChangeMiceLeftNumber(maxCapability);
+        playMenuScript.ChangeMiceCarriedNumber(0, maxCapability);
+        playMenuScript.ChangeMiceLeftNumber(miceToCollect, miceToCollect);
     }
 
     public void addNewMouse()
     {
-        micesCarried++;
-        playMenuScript.ChangeMiceCarriedNumber(micesCarried);
-        fpsScript.MoveSpeed = fpsScript.MoveSpeed * 0.9f;
-        miceCollected++;
+        if (micesCarried < maxCapability)
+        {
+            micesCarried++;
+            playMenuScript.ChangeMiceCarriedNumber(micesCarried, maxCapability);
+            fpsScript.MoveSpeed = fpsScript.MoveSpeed * 0.9f;
+            miceCollected++;
+        }
     }
 
     public void removeMice()
     {
         micesCarried = 0;
-        playMenuScript.ChangeMiceCarriedNumber(micesCarried);
-        playMenuScript.ChangeMiceLeftNumber(maxCapability - miceCollected);
+        playMenuScript.ChangeMiceCarriedNumber(micesCarried, maxCapability);
+        playMenuScript.ChangeMiceLeftNumber(miceToCollect - miceCollected, miceToCollect);
         fpsScript.MoveSpeed = fpsScript.MoveSpeed * (float) Math.Pow(1.11f, micesCarried);
     }
 }

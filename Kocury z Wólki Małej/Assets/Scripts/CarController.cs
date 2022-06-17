@@ -21,7 +21,7 @@ public class CarController : MonoBehaviour
         {
             Debug.Log("Collision");
             mouseGatherScr.removeMice();
-            if (mouseGatherScr.miceCollected == mouseGatherScr.maxCapability)
+            if (mouseGatherScr.miceCollected == mouseGatherScr.miceToCollect)
             {
                 if (Time.time - startTimeStamp <= timeToFinish)
                 {
@@ -32,6 +32,7 @@ public class CarController : MonoBehaviour
                 else
                 {
                     PlayerPrefs.SetString("Level completed", "False");
+                    PlayerPrefs.SetString("Next level", "Level2");
                 }
                 SceneManager.LoadScene(1);
             }
@@ -44,8 +45,9 @@ public class CarController : MonoBehaviour
         {
             
             mouseGatherScr.removeMice();
-            if (mouseGatherScr.miceCollected == mouseGatherScr.maxCapability)
+            if (mouseGatherScr.miceCollected == mouseGatherScr.miceToCollect)
             {
+
                 if (Time.time - startTimeStamp <= timeToFinish)
                 {
                     PlayerPrefs.DeleteKey("Next level");

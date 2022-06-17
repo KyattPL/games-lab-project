@@ -71,6 +71,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        
+        PlayerPrefs.SetString("Level completed", "False");
+        SceneManager.LoadScene(1);
     }
 }

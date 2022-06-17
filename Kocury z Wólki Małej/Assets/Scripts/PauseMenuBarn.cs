@@ -63,6 +63,7 @@ public class PauseMenuBarn : MonoBehaviour
 
     public void Quit()
     {
+        PlayerPrefs.DeleteAll();
         Application.Quit();
     }
 }

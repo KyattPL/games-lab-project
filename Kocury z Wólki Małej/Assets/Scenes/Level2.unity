@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20589,6 +20589,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 741075, guid: ea473adb75173c64d913912bd93598c7, type: 3}
+      propertyPath: playMenuDisplay
+      value: 
+      objectReference: {fileID: 2055826377851954274}
     - target: {fileID: 1433274093034890004, guid: ea473adb75173c64d913912bd93598c7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -20737,20 +20741,8 @@ MonoBehaviour:
   micesCarried: 0
   miceCollected: 0
   maxCapability: 0
+  miceToCollect: 0
   playMenuGO: {fileID: 2055826377851954274}
---- !u!114 &8616685848511519571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8616685848511519558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87256c09854c58458015f8ed094f36b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playMenuDisplay: {fileID: 2055826377851954274}
 --- !u!1 &8832137940737744320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8667598287082998758, guid: e0669b54f7af7af4e898719e8b2dc7d2, type: 3}

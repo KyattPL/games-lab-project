@@ -17,16 +17,16 @@ public class PlayMenu : MonoBehaviour
 
     public void ChangeLivesNumber(int newLivesNum)
     {
-        livesLeft.text = "Lives left: " + newLivesNum;
+        livesLeft.text = "¯ycia: " + newLivesNum;
     }
 
-    public void ChangeMiceCarriedNumber(int newMiceNum)
+    public void ChangeMiceCarriedNumber(int newMiceNum, int maxMiceCarried)
     {
-        miceCarried.text = "Mice carried: " + newMiceNum;
+        miceCarried.text = "Myszy w worku: " + newMiceNum + "/" + maxMiceCarried;
     }
 
-    public void ChangeMiceLeftNumber(int newMiceNum)
+    public void ChangeMiceLeftNumber(int newMiceNum, int miceToCollect)
     {
-        miceLeft.text = "Mice left: " + newMiceNum;
+        miceLeft.text = "Myszy do zebrania: " + newMiceNum + "/" + miceToCollect;
     }
 }

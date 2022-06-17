@@ -18,6 +18,7 @@ public class DialogueStarter : MonoBehaviour
     public Dialogue dialogueObj;
     public TextAsset jsonDialogues;
     public GameObject easterBox;
+    public PlayMenuBarn plMenuDisp;
     private StarterAssetsInputs _input;
     private float talkingDistance = 5.0f;
     private bool isTalking = false;
@@ -58,10 +59,18 @@ public class DialogueStarter : MonoBehaviour
                     SceneManager.LoadScene("Level1");
                 }
             }
-            else if (hit.transform.gameObject.tag == "Crate")
+            else if (hit.transform.gameObject.tag == "Crate" && PlayerPrefs.GetFloat("Money") >= 100.0f && PlayerPrefs.GetInt("MiceCapability") != 7)
             {
                 interactionCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Wciśnij E by kupić worek";
                 interactionCanvas.gameObject.SetActive(true);
+                if (_input.interact)
+                {
+                    float currMoney = PlayerPrefs.GetFloat("Money");
+                    PlayerPrefs.SetFloat("Money", currMoney - 100.0f);
+                    PlayerPrefs.SetInt("MiceCapability", 7);
+                    plMenuDisp.SetMoneyState(PlayerPrefs.GetFloat("Money"));
+                    _input.interact = false;
+                }
             }
             else if (hit.transform.gameObject.tag == "EasterShroom")
             {
