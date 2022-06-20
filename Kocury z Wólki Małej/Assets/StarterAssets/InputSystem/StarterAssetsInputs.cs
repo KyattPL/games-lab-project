@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool interact;
 		public bool shoot;
+		public bool changeMenu;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -55,6 +56,11 @@ namespace StarterAssets
         {
 			ShootInput(value.isPressed);
         }
+
+		public void OnChangeMenu(InputValue value)
+        {
+			ChangeMenuInput(value.isPressed);
+		}
 #endif
 
 
@@ -86,6 +92,11 @@ namespace StarterAssets
 		public void ShootInput(bool newShootState)
 		{
 			shoot = newShootState;
+		}
+
+		public void ChangeMenuInput(bool newChMenuState)
+		{
+			changeMenu = newChMenuState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

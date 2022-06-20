@@ -12,9 +12,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject playerObject;
     public GameObject watergunObject;
     public GameObject playMenuUI;
+    public StarterAssetsInputs inputSys;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (inputSys.changeMenu)
         {
             if (isGamePaused)
             {
@@ -24,6 +25,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
+            inputSys.changeMenu = false;
         }
     }
 
