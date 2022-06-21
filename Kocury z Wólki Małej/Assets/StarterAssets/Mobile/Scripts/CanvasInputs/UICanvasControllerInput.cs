@@ -27,7 +27,12 @@ namespace StarterAssets
         {
             starterAssetsInputs.ShootInput(virtualShootState);
         }
-        
+
+        public void VirtualChangeMenuStateInput(bool virtualMenuChangeState)
+        {
+            starterAssetsInputs.ChangeMenuInput(virtualMenuChangeState);
+        }
+
     }
 
 }
